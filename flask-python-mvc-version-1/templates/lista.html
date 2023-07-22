@@ -20,7 +20,7 @@
         </table>
         <a href="/formulario" class="btn btn-primary btn-salvar">Cadastro</a>
         <br><br>
-        <form action="/logout" style="float: right">
+        <form action="{{ url_for('logout') }}" style="float: right">
             <button type="submit" class="btn btn-primary btn-salvar">Logout</button>
         </form>
 {% endblock %}

@@ -20,6 +20,8 @@ app.secret_key = 'rodney'
 
 @app.route('/')
 def index():
+    if 'usuario_logado' not in session or session['usuario_logado'] is None:
+        return redirect('/login?proxima=formulario')
     return render_template('lista.html', titulo='Jogos', lista_de_jogos=lista_de_jogos)
 
 
@@ -32,8 +34,7 @@ def formulario():
 
 @app.route('/login')
 def login():
-    proxima = request.args.get('proxima')
-    return render_template('login.html', proxima=proxima)
+    return render_template('login.html')
 
 
 @app.route('/logout')
