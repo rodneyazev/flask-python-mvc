@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+{% block conteudo %}
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Console</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for jogo in lista_de_jogos %}
+                <tr>
+                    <td>{{ jogo.nome }}</td>
+                    <td>{{ jogo.categoria }}</td>
+                    <td>{{ jogo.console }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/formulario" class="btn btn-primary btn-salvar">Cadastro</a>
+        <br><br>
+        <form action="{{ url_for('logout') }}" style="float: right">
+            <button type="submit" class="btn btn-primary btn-salvar">Logout</button>
+        </form>
+{% endblock %}
